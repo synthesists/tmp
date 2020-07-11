@@ -39,7 +39,7 @@ module.exports = {
     ],
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
     'import/no-unresolved': 'off',
-    'import/prefer-default-export': 'warn',
+    'import/prefer-default-export': 'off',
   },
   settings: {
     'import/resolver': {
