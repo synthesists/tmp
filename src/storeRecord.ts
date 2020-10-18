@@ -14,9 +14,7 @@ export const uploadRecord = (record: Record, date: Date) => {
   const params: AWS.DynamoDB.PutItemInput = {
     Item: {
       artist_id: {
-        S: toKebabCase(
-          `${record.artist}/${date.toISOString()}/${record.position}`
-        ),
+        S: toKebabCase(`${record.artist}/${date.toISOString()}/${record.position}`),
       },
       artist: { S: record.artist },
       position: { N: record.position.toString() },
