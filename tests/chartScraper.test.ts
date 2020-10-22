@@ -1,4 +1,4 @@
-import { getTop100SinglesForDate, getSpotifyArtistObject } from "../src/chartScraper";
+import { getTop100SinglesForDate, getSpotifyArtistObject, getSpotifyTrackObject } from "../src/chartScraper";
 
 describe("getTop100SinglesForDate", () => {
   it("should get top 100 singles", async () => {
@@ -17,5 +17,10 @@ describe("getSpotifyArtistObject", () => {
     const artistObject = await getSpotifyArtistObject("HEADIE ONE/AJ TRACEY/STORMZY");
 
     expect(artistObject).toEqual({});
+  });
+  it("should get track object from spotify", async () => {
+    const trackObject = await getSpotifyTrackObject("AIN'T IT DIFFERENT");
+
+    expect(trackObject).toEqual({});
   });
 });

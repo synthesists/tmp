@@ -41,7 +41,7 @@ const getTokenId = async (): Promise<string> => {
   return token.id;
 };
 
-export const getArtist = async (artist: string): Promise<string> => {
+export const getArtistID = async (artist: string): Promise<string> => {
   const tokenID = await getTokenId();
   const options = {
     url: `https://api.spotify.com/v1/search?q=${artist}&type=artist`,
@@ -53,6 +53,20 @@ export const getArtist = async (artist: string): Promise<string> => {
     json: true,
   };
   const response = await axios(options);
-  // console.log(response.data.artists.items[0].id);
   return response.data.artists.items[0].id;
+};
+
+export const getTrackID = async (track: string): Promise<string> => {
+  const tokenID = await getTokenId();
+  const options = {
+    url: `https://api.spotify.com/v1/search?q=${track}&type=track`,
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      Authorization: `Bearer ${tokenID}`,
+    },
+    json: true,
+  };
+  const response = await axios(options);
+  return response.data.tracks.items[0].id;
 };
